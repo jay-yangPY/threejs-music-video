@@ -1,0 +1,12 @@
+{
+  "width": 1280,
+  "height": 720,
+  "fps": 30,
+  "duration": 12,
+  "audio": null,
+  "cues": [
+    {"start": 0, "end": 4, "text": "折叠", "scene": 3, "action": "fold"},
+    {"start": 4, "end": 8, "text": "散开", "scene": 7, "action": "scatter"},
+    {"start": 8, "end": 12, "text": "生长", "scene": 2, "action": "rise"}
+  ]
+}

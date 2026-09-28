@@ -1,0 +1,14 @@
+{
+  "title": "三种空间动作技术演示",
+  "duration": 12,
+  "fps": 30,
+  "width": 1280,
+  "height": 720,
+  "audio_status": "silent_demo",
+  "listening_verified": false,
+  "shots": [
+    {"start": 0, "end": 4, "text": "折叠", "key_phrase": true, "meaning": "从展开变为折合", "text_action": "字符平面交替沿纵轴向内折", "scene_action": "纸页转动展开，示例仅演示基础变换", "visible_result": "字符之间距离缩小，角度形成折面", "camera": "侧向观察，保留阅读角度"},
+    {"start": 4, "end": 8, "text": "散开", "key_phrase": true, "meaning": "从聚合变为分离", "text_action": "原字符分别向不同方向离开", "scene_action": "规整粒子结构散开", "visible_result": "同一批文字与物体分散后保持", "camera": "拉开距离展示分散范围"},
+    {"start": 8, "end": 12, "text": "生长", "key_phrase": true, "meaning": "由低到高的形成过程", "text_action": "字符依次上升", "scene_action": "城市从地面长高", "visible_result": "新的高度状态停留可见", "camera": "穿行并保持前方空间"}
+  ]
+}

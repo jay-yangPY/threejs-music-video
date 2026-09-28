@@ -1,0 +1,4 @@
+interface:
+  display_name: "Three.js 音乐动画"
+  short_description: "把歌词含义编排成三维空间动作，完成本地逐帧渲染与成片检查"
+  default_prompt: "使用 $threejs-music-video，把我提供的歌曲做成歌词、文字与场景相互作用的三维音乐动画。"
