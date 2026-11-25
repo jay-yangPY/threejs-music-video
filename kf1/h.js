@@ -27,3 +27,17 @@ window.__scroll=t=>{const e=leaf(t); e&&e.scrollIntoView({block:'start'}); retur
 window.__state=()=>{const t=document.body.innerText; return t.slice(t.indexOf('加入合集')+25,t.indexOf('加入合集')+75).replace(/\n/g,'|')+' || '+t.slice(t.indexOf('更多设置'),t.indexOf('更多设置')+40).replace(/\n/g,'|');};
 window.__H='ready';
 })();
+(()=>{const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const leafs=t=>[...document.querySelectorAll('*')].filter(e=>e.children.length==0&&(e.textContent||'').trim()===t);
+const sw=(label)=>{const l=leafs(label)[0]; if(!l) return null; let p=l; for(let i=0;i<6&&p;i++){p=p.parentElement; const s=p&&p.querySelector('[class*=switch]'); if(s) return s;} return null;};
+window.__editCover=async()=>{const e=leafs('编辑封面')[0]; if(!e) return 'no'; e.click(); await sleep(1500); return 'ok';};
+window.__orig=async()=>{const s=sw('原创声明'); if(!s) return 'nosw'; s.click(); await sleep(1500);
+ const a=leafs('我已阅读并同意')[0]||[...document.querySelectorAll('*')].find(e=>e.children.length<3&&/^我已阅读并同意/.test((e.textContent||'').trim())&&e.offsetParent);
+ let cb=null; if(a){let p=a; for(let i=0;i<4&&p&&!cb;i++){p=p.parentElement; cb=p&&p.querySelector('input[type=checkbox], [class*=checkbox]');}} if(!cb) return 'nocb'; cb.click(); await sleep(500);
+ const b=[...document.querySelectorAll('button,div,span')].filter(e=>(e.textContent||'').trim()==='声明原创'&&e.offsetParent); if(!b.length) return 'nobtn'; b[b.length-1].click(); await sleep(1500); return 'ok';};
+window.__ai=async()=>{const e=leafs('添加内容类型声明')[0]; if(!e) return 'no'; e.click(); await sleep(800); const o=leafs('笔记含AI合成内容').find(x=>x.offsetParent); if(!o) return 'noopt'; o.click(); await sleep(800); return 'ok';};
+window.__openColl=async()=>{const e=leafs('选择合集')[0]; if(!e) return 'no'; e.click(); await sleep(1000); return 'ok';};
+window.__timer=async()=>{const s=sw('定时发布'); if(!s) return 'nosw'; s.click(); await sleep(1000); return 'ok';};
+window.__submit=async()=>{const b=[...document.querySelectorAll('button')].find(e=>(e.textContent||'').trim()==='定时发布'); if(!b) return 'nobtn'; b.click(); await sleep(3500); return location.href.includes('success')+' '+document.body.innerText.includes('发布成功');};
+window.__origOn=()=>{const s=sw('原创声明'); return s? s.className:'';};
+})();
